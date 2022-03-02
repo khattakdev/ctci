@@ -52,17 +52,53 @@ class LinkedList {
     }
     return currentNode;
   }
+
+  unshift(val) {
+    var newNode = new Node(val);
+    if (!this.head) {
+      this.head = newNode;
+      this.tail = this.head;
+    } else {
+      newNode.next = this.head;
+      this.head = newNode;
+    }
+    this.length++;
+  }
+
+  get(index) {
+    if (index < 0 || index >= this.length) return null;
+    var counter = 0;
+    var currentNode = this.head;
+    while (counter != index) {
+      currentNode = currentNode.next;
+      counter++;
+    }
+
+    return currentNode;
+  }
+
+  insert(index, val) {
+    if (index < 0 || index > this.length) return false;
+    if (index == this.length) {
+      this.push(val);
+      return true;
+    }
+    if (index == 0) {
+      this.unshift(val);
+      return true;
+    }
+
+    var newNode = new Node(val);
+    var prev = this.get(index - 1);
+    var temp = prev.next;
+    prev.next = newNode;
+    newNode.next = temp;
+
+    this.length++;
+    return true;
+  }
 }
-// 5 -> 2 -> 7
 
 var list = new LinkedList();
-list.push(5);
-list.push(2);
-list.push(88);
-list.push(45);
 
-console.log(list.pop());
-list.pop();
-list.pop();
-list.pop();
 console.log(list);
