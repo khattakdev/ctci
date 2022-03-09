@@ -21,6 +21,8 @@ class Queue {
       this.last.next = newNode;
       this.last = newNode;
     }
+
+    return ++this.size;
   }
 
   dequeue() {
@@ -36,3 +38,10 @@ class Queue {
     return temp.value;
   }
 }
+
+const qu = new Queue();
+qu.enqueue(33);
+qu.enqueue(2);
+qu.enqueue(98);
+
+console.log(qu);
