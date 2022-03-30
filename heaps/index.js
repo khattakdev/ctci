@@ -1,6 +1,6 @@
 class MaxBinaryHeap {
   constructor() {
-    this.value = [44, 33, 32, 14, 16, 15];
+    this.value = [];
   }
 
   insert(val) {
@@ -57,12 +57,3 @@ class MaxBinaryHeap {
     }
   }
 }
-
-let heap = new MaxBinaryHeap();
-heap.insert(55);
-heap.insert(10);
-heap.insert(8);
-
-console.log(heap.extract());
-console.log(heap.extract());
-console.log(heap);
